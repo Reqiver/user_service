@@ -1,0 +1,12 @@
+.idea/
+.pytest_cache/
+.DS_Store
+__pycache__/
+venv/
+
+tmp/mongo/
+!tmp/mongo/.gitkeep
+
+.env
+.env.db
+*.override.yml

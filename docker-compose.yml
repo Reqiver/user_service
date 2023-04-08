@@ -1,0 +1,27 @@
+#docker-compose.yml
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      args:
+        RUNNING_PORT: $RUNNING_PORT
+
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+    ports:
+      - "$RUNNING_PORT:$RUNNING_PORT"
+    restart: on-failure
+    working_dir: /app
+  db:
+    image: mongo:6
+    volumes:
+      - ./tmp/mongo:/data/db
+    env_file:
+      - ./.env.db
+    ports:
+      - "27017:27017"
