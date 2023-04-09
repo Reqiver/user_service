@@ -1,4 +1,4 @@
-# Asynchronous API implementation with Python and FastAPI
+# User service
 
 
 ## How to run
@@ -7,6 +7,7 @@ Run
 
 ````
 $ cp .env.sample_dev .env
+$ cp .env.db.sample_dev .env.db
 $ docker-compose up -d --build
 ````
 
