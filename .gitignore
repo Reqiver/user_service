@@ -4,7 +4,7 @@
 __pycache__/
 venv/
 
-tmp/mongo/
+tmp/mongo/**
 !tmp/mongo/.gitkeep
 
 .env
