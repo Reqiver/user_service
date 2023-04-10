@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from app.db.user import create_user_index
-from app.routers import users
+from app.api.routers import users
 
 from app.config import settings
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
