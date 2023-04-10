@@ -23,8 +23,15 @@ class Settings(BaseSettings):
     mongo_initdb_port: int = 27017
 
     @property
+    def db_name(self) -> str:
+        db_name = self.mongo_initdb_database
+        if self.testing:
+            db_name = f'{self.mongo_initdb_database}_test'
+        return db_name
+
+    @property
     def mongo_uri(self) -> str:
-        return f"mongodb://{self.mongo_initdb_root_username}:{self.mongo_initdb_root_password}@{self.mongo_initdb_host}:{self.mongo_initdb_port}/{self.mongo_initdb_database}?authSource={self.mongo_initdb_root_username}"
+        return f"mongodb://{self.mongo_initdb_root_username}:{self.mongo_initdb_root_password}@{self.mongo_initdb_host}:{self.mongo_initdb_port}/{self.db_name}?authSource={self.mongo_initdb_root_username}"
 
     class Config:
         env_file = ".env"

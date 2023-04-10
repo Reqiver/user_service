@@ -12,9 +12,9 @@ from app.utils.middlewares import JWTAuthenticationMiddleware
 
 app = FastAPI()
 
-app.add_middleware(
-    TrustedHostMiddleware, allowed_hosts=settings.allowed_hosts
-)
+# app.add_middleware(
+#     TrustedHostMiddleware, allowed_hosts=settings.allowed_hosts
+# )
 app.add_middleware(JWTAuthenticationMiddleware)
 
 
