@@ -5,7 +5,7 @@ from app.config import settings
 async def get_db() -> AsyncIOMotorClient:
     try:
         client = AsyncIOMotorClient(settings.mongo_uri)
-        db = client[settings.mongo_initdb_database]
+        db = client[settings.db_name]
         yield db
     finally:
         client.close()

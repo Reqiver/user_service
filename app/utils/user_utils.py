@@ -90,7 +90,7 @@ async def get_current_user(token: str):
         raise credentials_exception
 
     client = AsyncIOMotorClient(settings.mongo_uri)
-    db = client[settings.mongo_initdb_database]
+    db = client[settings.db_name]
     coll = db['users']
     user = await crud.user.get(token_data.sub, coll)
 
