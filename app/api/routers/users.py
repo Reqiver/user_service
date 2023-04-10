@@ -10,8 +10,10 @@ from starlette.requests import Request
 from app import crud, schemas
 from app.api import deps
 
-from app.utils.user_utils import get_hashed_password, authenticate_user, create_access_token, \
-    create_refresh_token, refresh_token_helper
+from app.utils.user_utils import (
+    get_hashed_password, authenticate_user, create_access_token,
+    create_refresh_token, refresh_token_helper,
+)
 
 router = APIRouter(prefix='/users', tags=['users'])
 
